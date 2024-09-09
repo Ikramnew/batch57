@@ -193,3 +193,156 @@ form button{
     margin: 0;
     height: 200px;
 }
+.burger-button{
+    display: none;
+    background-color: #fff;
+    border: none;
+}
+.container-burger{
+    display: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 0;
+
+}
+.hide{
+    display: none;
+}
+.container-burger a{
+    text-decoration: none;
+    color: black;
+    background: white;
+    width: 100%;
+    padding: 20px 0;
+    border: 2px solid rgb(189, 189, 189);
+
+}
+.container-burger a:hover{
+    text-decoration: none;
+    color: white;
+    background: orangered;
+    width: 100%;
+    padding: 20px 0;
+    border: 2px solid rgb(189, 189, 189);
+    transition: 0.5s;
+
+}
+.container-burger .active{
+    background-color: orangered;
+    color: white;
+}
+.testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.testimonial {
+    width: 25%;
+    margin: 0px 15px 30px 15px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial img {
+    height: 200px;
+
+}
+
+.quote {
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.author {
+    font-weight: bold;
+    text-align: right;
+}
+
+.profile-testimonial {
+    width: 100%;
+}
+.container-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-rating {
+    display: flex;
+}
+
+.rating-btn {
+    margin: 20px;
+    padding: 0px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(3, 3, 3);
+    color: white;
+    cursor: pointer;
+}
+.rating-btn:hover{
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+/* responsif */
+
+@media screen and (max-width: 600px) {
+    .container{
+        flex-direction: column;
+        width: 300px;
+    }
+    .inner-content {
+        width: 100%;
+        margin: auto;
+        text-align: justify;
+        
+    }
+    .social-icons  {
+        text-decoration: none;
+        margin-left: 75px;
+        margin-top: 30px;
+
+
+    }
+    
+    .social-icons img {
+        width: 30px;
+        height: 30px;
+    }
+
+    ul li a{
+        display: none;
+    }
+
+    li i{
+        font-size: x-large;
+        color: rgb(72, 72, 72);
+    }
+
+    .burger-button{
+        display: block;
+    }
+
+    .container-burger{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 0;
+    
+    }
+    .hide{
+        display: none;
+    }
+}
+

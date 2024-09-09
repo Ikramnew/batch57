@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 <body>
     
@@ -12,9 +14,16 @@
             <li><img src="https://dumbways.id/assets/images/brandred.png" alt=""></li>
             <li><a href="index.html">Home</a> </li>
             <li><a href="project.html"> My Project</a></li>
-            <li style="margin-left: auto; margin-right: 30px;"><a href=""><button>Contact me</button></a> </li>
+            <li><a href="testimonial.html">Testimonial</a></li>
+            <li style="margin-left: auto; margin-right: 30px;"><button class="burger-button" onclick="mytoggle()"><i class="fa-solid fa-burger"></i></button><a href="contact.html"><button>Contact me</button></a> </li>
         </ul>
-    
+
+        <div class="container-burger hide" id="burger-button">
+            <a href="index.html" class="active">Home</a>
+            <a href="project.html">Project</a>
+            <a href="contact.html">Contact</a>
+            <a href="testimonial.html">Testimonial</a>
+        </div>
         <form onsubmit="send(event)">
             <div>
                 <label for="name">Name</label>
@@ -52,5 +61,6 @@
         </form>
 
         <script src="/assets/js/contact.js"></script>
+        <script src="/assets/js/burger.js"></script>
 </body>
 </html>
