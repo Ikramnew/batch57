@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+     <ul>
+    <li><img src="https://dumbways.id/assets/images/brandred.png" alt=""></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="project">My Project</a></li>
+    <li><a href="testimonial">Testimonial</a></li>
+
+    {{#if user}}  
+    
+    {{!-- kalo login --}}
+        <li style="margin-left: auto; margin-right: 30px;">
+            <span>Hello, {{user.name}}</span> 
+            <a href="/logout"><button>Logout</button></a>
+            <button class="burger-button" onclick="mytoggle()"><i class="fa-solid fa-burger"></i></button>
+            <span></span>
+        </li>
+    {{else}} <!-- klo blum login-->
+        <li style="margin-left: auto; margin-right: 30px;">
+            <a href="/login"><button>Login</button></a>
+            <a href="/register"><button>Register</button></a>
+            <a href="contact"><button>Contact me</button></a>
+            <button class="burger-button" onclick="mytoggle()"><i class="fa-solid fa-burger"></i></button>
+        </li>
+    {{/if}}
+</ul>
+    
+        <form onsubmit="send(event)">
+            <div>
+                <label for="name">Name</label>
+                <br>
+                <input type="text" id="name">
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <br>
+                <input type="email" id="email">
+            </div>
+            <div>
+                <label for="phone">Phone Number</label>
+                <br>
+                <input type="number" id="phone">
+            </div>
+            <div>
+                <label for="subject">Subject</label>
+                <br>
+                <select id="subject">
+                    <option disabled>Silahkan Pilih</option>
+                    <option value="frontend">Frontend</option>
+                    <option value="backend">Backend</option>
+                    <option value="fullstack">Fullstack</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="message">Message</label>
+                <br>
+                <textarea id="message" rows="5"></textarea>
+            </div>
+
+            <button type="submit">Send</button>
+        </form>
+
+        <script src="/assets/js/contact.js"></script>
+        <script src="/assets/js/burger.js"></script>
+</body>
+</html>

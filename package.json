@@ -4,13 +4,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    
+     "build": "ncc build index.js -o dist"
+
+
   },
   "author": "ikram",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "express": "^4.21.0",
     "express-session": "^1.18.0",
     "hbs": "^4.2.0",
@@ -19,7 +23,9 @@
     "sequelize": "^6.37.3"
   },
   "devDependencies": {
+    "@vercel/ncc": "^0.38.1",
     "nodemon": "^3.1.4",
     "sequelize-cli": "^6.6.2"
   }
+  
 }

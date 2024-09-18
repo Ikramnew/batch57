@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+</head>
+<body>
+     <ul>
+    <li><img src="https://dumbways.id/assets/images/brandred.png" alt=""></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="project">My Project</a></li>
+    <li><a href="testimonial">Testimonial</a></li>
+
+    {{#if user}}  
+    
+    {{!-- kalo login --}}
+        <li style="margin-left: auto; margin-right: 30px;">
+            <span>Hello, {{user.name}}</span> 
+            <a href="/logout"><button>Logout</button></a>
+            <button class="burger-button" onclick="mytoggle()"><i class="fa-solid fa-burger"></i></button>
+            <span></span>
+        </li>
+    {{else}} <!-- klo blum login-->
+        <li style="margin-left: auto; margin-right: 30px;">
+            <a href="/login"><button>Login</button></a>
+            <a href="/register"><button>Register</button></a>
+            <a href="contact"><button>Contact me</button></a>
+            <button class="burger-button" onclick="mytoggle()"><i class="fa-solid fa-burger"></i></button>
+        </li>
+    {{/if}}
+</ul>
+       
+          <div class="projects-container">
+    {{#each projects}}
+    <div class="card">
+        <a href="/detail-project/{{id}}">
+        <img src="{{image}}" alt="Project Image" class="card-image">
+        </a>
+        <div class="card-content">
+            <h2 class="card-title">{{project_name}}</h2>
+            <p class="card-date">Start Date: {{start_date}} | End Date: {{end_date}}</p>
+            <p class="card-description">{{description}}</p>
+            <p class="card-tech">Technologies:  <span class="tech-icons">{{technologies}}</span></p>
+            <p class="card-author">Author: {{author}}</p>
+            <p class="card-date">Created At: {{createdAt}}</p>
+            <div class="card-buttons">
+              <a href="/edit-project/{{id}}" class="card-btn edit-btn btn btn-warning"  style="text-decoration: none;">Edit</a>
+                <a href="/delete-project/{{id}}" class="card-btn delete-btn btn btn-danger"  style="text-decoration: none;">Delete</a>
+                
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+
+
+      
+        <script src="/assets/js/burger.js"></script>
+            <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+           
+                <script>
+    // Pemetaan teknologi ke ikon Font Awesome
+    const techIconMap = {
+        'Javascript': '<i class="fa-brands fa-js"></i>',
+        'Node.js': '<i class="fa-brands fa-node-js"></i>',
+        'React.js': '<i class="fa-brands fa-react"></i>',
+        'HTML': '<i class="fa-brands fa-html5"></i>',
+        
+    };
+
+    // Fungsi untuk mengganti nama teknologi dengan ikon
+    function replaceTechnologiesWithIcons() {
+        // Dapatkan semua elemen yang memiliki class 'tech-icons'
+        const techElements = document.querySelectorAll('.tech-icons');
+
+        techElements.forEach(techElement => {
+            const techText = techElement.textContent;
+            // Pisahkan teks teknologi dengan koma dan hilangkan spasi
+            const techList = techText.split(',').map(tech => tech.trim());
+
+            // Ubah setiap teknologi menjadi ikon
+            const iconsHtml = techList.map(tech => techIconMap[tech] || tech).join(' ');
+
+            // Gantikan teks dengan ikon yang sudah dipetakan
+            techElement.innerHTML = iconsHtml;
+        });
+    }
+
+    // Panggil fungsi setelah konten dimuat
+    window.onload = replaceTechnologiesWithIcons;
+</script>
+
+ 
+    
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    
+             <ul>
+    <li><img src="https://dumbways.id/assets/images/brandred.png" alt=""></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="project">My Project</a></li>
+    <li><a href="testimonial">Testimonial</a></li>
+
+    {{#if user}}  
+    
+    {{!-- kalo login --}}
+        <li style="margin-left: auto; margin-right: 30px;">
+            <span>Hello, {{user.name}}</span> 
+            <a href="/logout"><button>Logout</button></a>
+            <button class="burger-button" onclick="mytoggle()"><i class="fa-solid fa-burger"></i></button>
+            <span></span>
+        </li>
+    {{else}} <!-- klo blum login-->
+        <li style="margin-left: auto; margin-right: 30px;">
+            <a href="/login"><button>Login</button></a>
+            <a href="/register"><button>Register</button></a>
+            <a href="contact"><button>Contact me</button></a>
+            <button class="burger-button" onclick="mytoggle()"><i class="fa-solid fa-burger"></i></button>
+        </li>
+    {{/if}}
+</ul>
+        
+
+        <div class="container-rating">
+            <h2>Rating By Star</h2>
+            <div class="rating">
+              
+              <button onclick="allTestimonial()" class="rating-btn">All</button>
+              <button onclick="filterTestimonial(1)" class="rating-btn">1 <i class="fa-solid fa-star"></i></button>
+              <button onclick="filterTestimonial(2)" class="rating-btn">2 <i class="fa-solid fa-star"></i></button>
+              <button onclick="filterTestimonial(3)" class="rating-btn">3 <i class="fa-solid fa-star"></i></button>
+              <button onclick="filterTestimonial(4)" class="rating-btn">4 <i class="fa-solid fa-star"></i></button>
+              <button onclick="filterTestimonial(5)" class="rating-btn">5 <i class="fa-solid fa-star"></i></button>
+            </div>
+          </div>
+        <h2 style="text-align: center;">My Testimonial</h2>
+    
+        <section class="testimonials" id="testimonials">
+            
+        </section>
+        <main>
+    
+        </main>
+
+        <script src="/assets/js/project.js"></script>
+        <script src="/assets/js/burger.js"></script>
+        <script src="/assets/js/ajax.js"></script>
+         <!-- <script src="/assets/js/testimonial.js"></script> -->
+</body>
+</html>
