@@ -5,10 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
-    
-     "build": "ncc build index.js -o dist"
-
-
+    "build": "ncc build index.js -o dist"
   },
   "author": "ikram",
   "license": "ISC",
@@ -27,5 +24,4 @@
     "nodemon": "^3.1.4",
     "sequelize-cli": "^6.6.2"
   }
-  
 }
