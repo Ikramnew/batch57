@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+<style>
+    /* Global alert styling */
+.alert {
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 5px;
+    position: relative;
+    background-color: #4CAF50; /* Green for success */
+    color: white;
+    font-family: Arial, sans-serif;
+    opacity: 1;
+    transition: opacity 0.6s ease; /* Smooth transition for close */
+}
+
+/* Close button styling */
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Close button hover effect */
+.closebtn:hover {
+    color: black;
+}
+
+</style>
+</head>
+<body>
+
+       <ul>
+    <li><img src="https://dumbways.id/assets/images/brandred.png" alt=""></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="project">My Project</a></li>
+    <li><a href="testimonial">Testimonial</a></li>
+
+    {{#if user}}  
+    
+    {{!-- kalo login --}}
+        <li style="margin-left: auto; margin-right: 30px;">
+            <span>Hello, {{user.name}}</span> 
+            <a href="/logout"><button>Logout</button></a>
+            <button class="burger-button" onclick="mytoggle()"><i class="fa-solid fa-burger"></i></button>
+            <span></span>
+        </li>
+    {{else}} <!-- klo blum login-->
+        <li style="margin-left: auto; margin-right: 30px;">
+            <a href="/login"><button>Login</button></a>
+            <a href="/register"><button>Register</button></a>
+            <a href="contact"><button>Contact me</button></a>
+            <button class="burger-button" onclick="mytoggle()"><i class="fa-solid fa-burger"></i></button>
+        </li>
+    {{/if}}
+</ul>
+
+<div class="container-burger hide" id="burger-button">
+    <a href="/" class="active">Home</a>
+    <a href="/contact">Contact</a>
+    <a href="/testimonial">Testimonial</a>
+    <a href="/project">My Project</a>
+
+    {{#if user}} <!-- Jika user sudah login -->
+        <a href="/logout"><button>Logout</button></a>
+        <span>Hello, {{user.name}}</span> <!-- Menampilkan nama user -->
+    {{else}} <!-- Jika user belum login -->
+        <a href="/login"><button>Login</button></a>
+        <a href="/register"><button>Register</button></a>
+    {{/if}}
+</div>
+
+
+{{#if successMessage}}
+    <div class="alert success">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{successMessage}}
+    </div>
+{{/if}}
+
+    <div class="container">
+  
+
+        <div class="inner-content">
+            <h2>Hi welcome to my hut</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium velit provident autem nulla tempora placeat soluta magni illum molestiae nostrum.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio dicta sapiente alias perspiciatis aperiam veniam dolores, obcaecati voluptatibus nihil cum.
+            </p>
+            <a href="contact" class="contact-btn">Contact</a>
+            
+            <a href="" class="download-link">Download CV</a>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/facebook-new.png" alt="Facebook">
+                </a>
+                <a href="https://www.twitter.com" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/twitter.png" alt="Twitter">
+                </a>
+            </div>
+        </div>
+        
+        <div class="inner-content">
+           
+            <div class="profile-container">
+                <img class="profile-image" src="https://images.pexels.com/photos/1172207/pexels-photo-1172207.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+                <div class="profile-details" style="text-align: center; padding-bottom: 5px; ;">
+                    <h3>{{user.name}}</h3>
+                    <p>{{user.email}}</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="/assets/js/burger.js"></script>
+</html>

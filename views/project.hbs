@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    
+     <ul>
+    <li><img src="https://dumbways.id/assets/images/brandred.png" alt=""></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="project">My Project</a></li>
+    <li><a href="testimonial">Testimonial</a></li>
+
+    {{#if user}}  
+    
+    {{!-- kalo login --}}
+        <li style="margin-left: auto; margin-right: 30px;">
+            <span>Hello, {{user.name}}</span> 
+            <a href="/logout"><button>Logout</button></a>
+            <button class="burger-button" onclick="mytoggle()"><i class="fa-solid fa-burger"></i></button>
+            <span></span>
+        </li>
+    {{else}} <!-- klo blum login-->
+        <li style="margin-left: auto; margin-right: 30px;">
+            <a href="/login"><button>Login</button></a>
+            <a href="/register"><button>Register</button></a>
+            <a href="contact"><button>Contact me</button></a>
+            <button class="burger-button" onclick="mytoggle()"><i class="fa-solid fa-burger"></i></button>
+        </li>
+    {{/if}}
+</ul>
+    
+
+        
+        <form action="/project" method="post">
+        <h1 style="text-align: center;">Add My Project</h1>
+
+            <div>
+                <label for="projectName">Project Name</label>
+                <br>
+                <input type="text" name="project_name">
+            </div>
+
+            <div class="container-date">
+                <div class="date-item">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" name="start_date">
+                </div>
+                <div class="date-item">
+                    <label for="endDate">End Date</label>
+                    <input type="date" name="end_date">
+                </div>
+            </div>
+            
+           
+
+            <div>
+                <label for="Description">Description</label>
+                <br>
+                <textarea name="description" rows="5"></textarea>
+            </div>
+           <div class="checkbox-container">
+    <label for="technologies" style="margin-bottom: 10px;">Technologies</label>
+    <div class="checkbox-group">
+        <div class="checkbox-item">
+            <input type="checkbox" name="technologies" value="Node.js">
+            <label for="nodejs">Node.js</label>
+        </div>
+        <div class="checkbox-item">
+            <input type="checkbox" name="technologies" value="React.js">
+            <label for="reactjs">React.js</label>
+        </div>
+    </div>
+    <div class="checkbox-group">
+        <div class="checkbox-item">
+            <input type="checkbox" name="technologies" value="HTML">
+            <label for="typescript">HTML</label>
+        </div>
+        <div class="checkbox-item">
+            <input type="checkbox" name="technologies" value="Javascript">
+            <label for="nextjs">Javascript</label>
+        </div>
+    </div>
+</div>
+
+            <div>
+                <label for="projectImage">Upload Image</label>
+                <br>
+                <div class="upload">
+                    <input type="file" id="projectImage" name="projectImage" accept="image/*">
+                    <i class="fas fa-paperclip"></i>
+                </div>
+            </div>
+          
+            
+
+            <button type="submit">Post Blog</button>
+        </form>
+
+        <div class="uploaded" id="contents">
+            
+        </div>
+
+
+        <script src="/assets/js/project.js"></script>
+        <script src="/assets/js/burger.js"></script>
+</body>
+</html>
